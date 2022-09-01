@@ -1,0 +1,71 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <slot name="head">
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <meta name="generator" content={Astro.generator} />
+      <title>{title}</title>
+    </slot>
+  </head>
+  <body>
+    <slot />
+    <style lang="postcss" is:global>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      body {
+        @apply text-gray-900 bg-gray-50;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @apply capitalize font-bold;
+      }
+
+      h1 {
+        font-size: clamp(1.5rem, 90vw, 3rem);
+      }
+
+      h2 {
+        font-size: clamp(1.25rem, 80vw, 2.5rem);
+      }
+      h3 {
+        font-size: clamp(1.125rem, 70vw, 2.25rem);
+      }
+      h4 {
+        font-size: clamp(1rem, 60vw, 1.875rem);
+      }
+      h5 {
+        font-size: clamp(0.875rem, 50vw, 1.5rem);
+      }
+      h6 {
+        font-size: clamp(0.75rem, 40vw, 1.25rem);
+      }
+
+      img {
+        @apply aspect-square;
+      }
+
+      p {
+        max-width: 60vh;
+
+        @apply leading-relaxed;
+      }
+    </style>
+  </body>
+</html>
