@@ -1,7 +1,12 @@
 ---
+import AstroTopFrameWorksCircle from "@/components/AstroTopFrameWorksCircle.astro";
 import HMFLayout from "@/layouts/HMFLayout.astro";
 ---
 
 <HMFLayout title="Home">
-  <Fragment slot="main">It's working</Fragment>
+  <Fragment slot="footer">
+    <div class="h-32 w-3/5 grid place-items-center">
+      <AstroTopFrameWorksCircle revealedFrameworks={["vue"]} />
+    </div>
+  </Fragment>
 </HMFLayout>

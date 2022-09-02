@@ -1,0 +1,67 @@
+---
+const topFiveFrameworks = [
+  "react",
+  "vue",
+  "angular",
+  "svelte",
+  "solid",
+] as const;
+
+import { Icon } from "astro-icon";
+
+export interface Props {
+  revealedFrameworks: Array<typeof topFiveFrameworks[number]>;
+}
+
+const { revealedFrameworks } = Astro.props;
+---
+
+<div class="relative w-16 h-16">
+  <div class="absolute z-20 -top-3 left-1/2 transform -translate-x-1/2">
+    {
+      revealedFrameworks.includes("react") && (
+        <Icon name="logos:react" class="w-6" />
+      )
+    }
+  </div>
+  <div class="absolute z-20 top-1/4 -right-3 transform -translate-y-1/2">
+    {
+      revealedFrameworks.includes("angular") && (
+        <Icon name="logos:angular-icon" class="w-6" />
+      )
+    }
+  </div>
+  <div class="absolute z-20 top-1/4 -left-3 transform -translate-y-1/2">
+    {
+      revealedFrameworks.includes("vue") && (
+        <Icon name="logos:vue" class="w-6" />
+      )
+    }
+  </div>
+  <div class="absolute z-20 bottom-1/4 -left-3 transform translate-y-1/2">
+    {
+      revealedFrameworks.includes("svelte") && (
+        <Icon name="logos:svelte-icon" class="w-6" />
+      )
+    }
+  </div>
+  <div class="absolute z-20 bottom-1/4 -right-3 transform translate-y-1/2">
+    {
+      revealedFrameworks.includes("solid") && (
+        <Icon name="logos:solidjs-icon" class="w-6" />
+      )
+    }
+  </div>
+  <div class="absolute z-10">
+    <div class="transition-opacity duration-300 ease-in hover:opacity-80">
+      <div class="rounded-full bg-purple-700">
+        <div class="p-2">
+          <Icon
+            name="simple-icons:astro"
+            class="w-full h-full text-orange-600"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
