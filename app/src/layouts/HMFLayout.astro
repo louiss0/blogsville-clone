@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 
+import Navbar from "@/components/Navbar.vue";
+import Sidebar from "@/components/Sidebar.vue";
+
 interface Props {
   title: string;
 }
@@ -9,7 +12,9 @@ const { title } = Astro.props;
 ---
 
 <BaseLayout title={title}>
+  <Sidebar client:idle />
   <header>
+    <Navbar client:idle />
     <slot name="header" />
   </header>
 
