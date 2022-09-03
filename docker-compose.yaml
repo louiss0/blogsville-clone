@@ -19,7 +19,24 @@ services:
       - /app/node_modules/
 
       - ./app:/app
+  
+  preview:
+    
+    build: 
+    
+      context: ./
 
+      dockerfile: ./dockerfiles/server.dockerfile
+
+    ports:
+      
+      - "3000:3000"
+
+    volumes:
+      
+      - /app/node_modules/
+
+      - ./app:/app
 
   npm:
     
@@ -29,6 +46,7 @@ services:
       
       dockerfile: ./dockerfiles/npm.dockerfile
   
+
     tty: true
     
     stdin_open: true
