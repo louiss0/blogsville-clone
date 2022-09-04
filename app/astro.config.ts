@@ -3,6 +3,8 @@ import tailwind from "@astrojs/tailwind";
 
 import vue from "@astrojs/vue";
 
+import vueJSX from  "@vitejs/plugin-vue-jsx";
+
 import HtmlDirectives from "remark-html-directives";
 
 // https://astro.build/config
@@ -15,6 +17,9 @@ export default defineConfig({
     host: true,
   },
   vite: {
+    plugins: [
+      vueJSX()
+    ],
     resolve: {
       alias: {
         "@": "/src",

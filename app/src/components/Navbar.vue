@@ -1,12 +1,11 @@
-<script lang="ts" setup>
+<script lang="tsx" setup>
 import useSideBarStore from "@/stores/useSideBarStore";
 import { NavLinks } from "@/types";
 import Container from "./Container.vue";
 import LightDarkSwitch from "./LightDarkSwitch.vue";
 import Sidebar from "./Sidebar.vue";
 
-const { setIsShownToTrue  = useSideBarStore();
-
+const { setIsShownToTrue } = useSideBarStore();
 
 const links: ReadonlyArray<NavLinks> = [
   { path: "/", text: "Home" },
@@ -19,15 +18,8 @@ const links: ReadonlyArray<NavLinks> = [
     <Container class="w-5/6 max-w-screen-xl">
       <div data-padding-layer class="py-2 px-6">
         <div data-content-layer class="flex justify-around">
-          <div data-hamburger-menu @click="setIsShownToTrue">
-            <svg viewBox="0 0 24 24" class="w-12 h-full">
-              <path
-                fill="currentColor"
-                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-              ></path>
-            </svg>
-          </div>
-          <Container class="w-2/5 lg:w-4/5">
+          <div data-hamburger-menu @click="setIsShownToTrue"></div>
+          <div class="w-2/5 lg:w-4/5">
             <div data-padding-layer class="py-2 px-6">
               <ul data-content-layer class="flex gap-4 items-center">
                 <template v-for="{ path, text } of links">
@@ -39,7 +31,7 @@ const links: ReadonlyArray<NavLinks> = [
                 </template>
               </ul>
             </div>
-          </Container>
+          </div>
           <LightDarkSwitch />
         </div>
       </div>
@@ -48,3 +40,22 @@ const links: ReadonlyArray<NavLinks> = [
 
   <Sidebar :links="links" />
 </template>
+
+<script lang="tsx">
+function HambugerIcon() {
+  return (
+    <svg viewBox="0 0 24 24" class="w-12 h-full">
+      <path
+        fill="currentColor"
+        d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+      ></path>
+    </svg>
+  );
+}
+
+export default {
+  components: {
+    HambugerIcon,
+  },
+};
+</script>
