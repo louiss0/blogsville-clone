@@ -21,7 +21,7 @@ const classObject = computed(() => ({
 
 <template>
   <a v-if="href" :href="href" :class="[$class, classObject]" v-bind="restAttrs">
-    } ]" >
+    >
     <slot />
   </a>
   <button :class="[$class, classObject]" v-bind="restAttrs" v-else>

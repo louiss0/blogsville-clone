@@ -27,6 +27,10 @@ This page is made by  using a package called remark directives combined with ano
 To look into it look at this site: <https://github.com/louiss0/remark-html-directives> 
 
 :a[Astro]{.underline.underline-offset-2 href="https://astro.build" target="_blank"} is a good tool even though it's clearly still young it has everything you need to make basic static sites.
+
+ ::a[Go Back]{.rounded-sm.bg-blue-300.py-1.px-3.justify-self-start href="/"}
+ 
+
 :::
 ::::
 :::::
@@ -50,16 +54,30 @@ To look into it look at this site: <https://github.com/louiss0/remark-html-direc
  ::::
 :::::
 
+<!-- As ypu can see you don't need to use the `:::` after names  all the time you can just use them after  -->
 
-:::section{.bg-gray-800.h-96.text-gray-100.grid.place-items-center}
+:::::::section{.bg-gray-800.text-gray-100}
 
+::::::div{.transition-opacity.duration-200.ease-in.hover:opacity-80}
+    
+:::::div{.grid.place-items-center}
 
-:::div{.grid.place-items-center.h-4/5.w-4/5.bg-gray-900}
+::::div{.grid.place-items-center.h-4/5.w-4/5.bg-gray-900}
 
-Yes what you see is a section of :abbr[HTML]{title='Hypertext Markup Language'} that you can control by using :abbr[CSS]{title='Cascading Style Sheets'}
-
-
+:::div{.transition-opacity.duration-200.ease-in.hover:opacity-60}
+           
+   Yes what you see is a section of :abbr[HTML]{title='Hypertext Markup Language'} that you can control by using 
+           :abbr[CSS]{title='Cascading Style Sheets'}
 :::
+
+  
+::::
+
+:::::
+
+::::::
+
+:::::::
 
 
 

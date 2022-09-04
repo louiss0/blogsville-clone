@@ -1,35 +1,18 @@
-import { useStore } from "@nanostores/vue";
-import { atom } from "nanostores";
+import useBoolean from "@/composables/useBoolean"
+import { createGlobalState } from "@vueuse/core"
 
 
 
-const isShown = atom(false)
 
-export default function useSideBarStore() {
+
+
+const useSideBarStore = createGlobalState(() => {
     
+    const [ isShown, setIsShownToTrue, setIsShownToFalse  ] =  useBoolean()
     
-    const getIsShown = useStore(isShown);
-
-    return {
-
-        
-        getIsShown,
-        
-         setIsShownToTrue() {
-            
-            isShown.set(true)
-        },
-         setIsShownToFalse() {
-            isShown.set(false)
-            
-        },
-         toggleIsShown() {
-            isShown.set(!isShown.get())
-        },
-        
-    }
-    
+    return {isShown, setIsShownToTrue, setIsShownToFalse}
+})
     
     
 
-};
+export default useSideBarStore

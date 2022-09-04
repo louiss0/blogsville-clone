@@ -1,15 +1,44 @@
 ---
 import AstroTopFrameWorksCircle from "@/components/AstroTopFrameWorksCircle.astro";
+import Container from "@/components/Container.vue";
 import HMFLayout from "@/layouts/HMFLayout.astro";
 ---
 
 <HMFLayout title="Home">
-  <div slot="header"><h1>This is the header</h1></div>
+  <Container slot="header">
+    <hgroup>
+      <h1>Introduction</h1>
+      <p>
+        Welcome to the astro and vue template made by
+        <a
+          href="https://www.twitter.com/SheltonLouisX"
+          class="hover:underline underline-offset-2"
+        >
+          Shelton Louis
+        </a>
+      </p>
+    </hgroup>
 
-  <div slot="main" class=""><h2>This is the main content of the page</h2></div>
-  <Fragment slot="footer">
-    <div class="h-32 w-3/5 grid place-items-center">
-      <AstroTopFrameWorksCircle revealedFrameworks={["vue"]} />
-    </div>
-  </Fragment>
+    <p>
+      This section is the section that is supposed to introductory content like
+      a hero section. I call this layout the <abbr
+        title="Header Main and Footer Layout"
+        class="underline-offset-2">HMFLayout</abbr
+      >
+    </p>
+  </Container>
+  <Container slot="main">
+    <p>
+      This is the main slot for this site your sections all live inside of this
+      area. The footer section contains the circle that hides icons of the
+      frameworks not used by this template. You can type in more frameworks
+      under the revealedFrameworks prop. You'll se what they are by using
+      <kbd>ctrl</kbd>
+      <span>+</span>
+      <kbd>space</kbd>
+    </p>
+  </Container>
+  <Container slot="footer" class="w-3/5 grid place-items-center">
+    <AstroTopFrameWorksCircle revealedFrameworks={["vue"]} />
+  </Container>
 </HMFLayout>
