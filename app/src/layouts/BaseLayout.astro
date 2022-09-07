@@ -13,6 +13,7 @@ const { title } = Astro.props as Props;
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width" />
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="stylesheet" href="/fonts.css" />
       <meta name="generator" content={Astro.generator} />
       <title>{title}</title>
     </slot>
@@ -25,7 +26,7 @@ const { title } = Astro.props as Props;
       @tailwind utilities;
 
       body {
-        @apply text-gray-900 bg-gray-50;
+        @apply text-gray-900 bg-gray-50 font-body;
       }
 
       h1,
@@ -34,7 +35,7 @@ const { title } = Astro.props as Props;
       h4,
       h5,
       h6 {
-        @apply capitalize font-bold;
+        @apply capitalize font-bold font-display;
       }
 
       h1 {
@@ -62,7 +63,7 @@ const { title } = Astro.props as Props;
       }
 
       p {
-        max-width: 60vh;
+        max-width: 60vw;
 
         @apply leading-relaxed;
       }

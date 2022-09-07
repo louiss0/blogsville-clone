@@ -3,7 +3,14 @@ module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily() {
+        return {
+          display: ["Decalotype", "sans-serif"],
+          body: ["Archivo", "sans-serif"],
+        };
+      },
+    },
   },
   plugins: [],
 };

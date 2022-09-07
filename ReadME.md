@@ -1,15 +1,8 @@
-# Astro Docker Template 
+# Blogsville Clone 
 
 
-This template is a template that contains two main folders the app folder and the dockerfile. 
+This is going to bg my blogsville clone. I'm making a clone of a site called [blogsville](https://blogsville-template.webflow.io/).
 
-Astro is used as my static site generator. Vue is the Ui framework of choice. Tailwind css is the framework of choice.
-I use two remark plugins in my code `remark-html-directives` and `remark-directive`. Please don't touch what is in the config folder. 
-The configuration is important. **Warning!** don't use `npm` over `pnpm`. You wont be able to to use volumes at all 
-Symlinks can't be transferred from one file to another and pnpm will slow things down a lot you don't want that. 
-
-I discovered that every time you download something new you need to then kill the image and start all over again to me this is not productive.
-I created this template because I don't like to download the node installer at all. But Other that that there are quite a few topics to cover.
 
 
 ## Sections 
@@ -54,6 +47,16 @@ There are three config files that are very important to keep the way they are.
 {
 darkMode: "class",
 content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+theme: {
+    extend: {
+      fontFamily() {
+        return {
+          display: ["Decalotype", "sans-serif"],
+          body: ["Archivo", "sans-serif"],
+        };
+      },
+    },
+  },
 }
 ```
 
@@ -94,16 +97,6 @@ export default defineConfig({
 
 ```
 
-- The `"remark-directive"` plugin enables the use of markdown html directives. `HtmlDirectives` is the one that creates html for astro to use 
-
-- The `host: true` is make sure localhost can access the server via docker 
-
-- `alias:{ "@": "/src" }` allows the use of using `@` to access modules instead of using relative paths 
-
-- `external: ["svgo"]` allows you to use astro icon in order to process icons from a huge set of icon sources
-
-- `watch: { usePolling: true,},` allows vite to watch files that have changed inside of docker. 
-    - The server will not reload if you erase this   
 
 
 ### Ts Config
@@ -132,30 +125,4 @@ Because of the limitations oof astro and the fact that I need to make sure that 
     - This means `<style is:global>` cannot be used on other layouts   
 
 3. The `index.astro` file must always be used to create all my first pages unless told otherwise 
-
-4. The articles that are written must be written by using `"remark-html-directives"`
-
-5. New layouts will not change anything about The styles that were created in the `BaseLayout`
-
-6. Every article front-matter will use the below format
-
-```yaml
-
-author: 
-
-aliases: []
-
-tags: []
-
-created:  
- 
- day: 
- 
- time: 
-
-
-```
-7. The `HMFLayout will not change under any circumstances`
-
-8. The `HMFLayout only be used if Two slots are to be used`
 
