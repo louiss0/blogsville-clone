@@ -1,0 +1,158 @@
+---
+import Container from "@/components/Container.vue";
+import HMFLayout from "@/layouts/HMFLayout.astro";
+import Icon from "astro-icon";
+import Button from "@/components/Button.vue";
+
+interface Props {
+  title: string;
+}
+
+const categories = [
+  "business",
+  "design",
+  "education",
+  "health",
+  "shopping",
+  "travel",
+] as const;
+
+const utilities = [
+  "Style Guide",
+  "Get started",
+  "licenses",
+  "changelog",
+  "support",
+];
+
+const { title } = Astro.props;
+
+const socialMediaIcons = ["twitter", "instagram", "linkedin"];
+---
+
+<HMFLayout title={title}>
+  <Fragment slot="header">
+    <slot name="header" />
+  </Fragment>
+
+  <Fragment slot="main">
+    <slot name="main" />
+    <section aria-labelledby="membership">
+      <div class="bg-white shadow-sm shadow-gray-200">
+        <Container class="w-10/12 md:w-8/12 text-center">
+          <div class="px-6 py-10">
+            <div class="grid gap-6">
+              <div class="text-lg lg:text-2xl text-gray-300">
+                UPGRADE TO A READER MEMBERSHIP FOR $4/MONTH
+              </div>
+              <h2 id="membership">Get more out of the news</h2>
+              <Button
+                size={"md"}
+                class="bg-green-300 justify-self-center rounded-sm"
+              >
+                <div class="font-bold uppercase">Get unlimited access</div>
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </div>
+    </section>
+    <section aria-labelledby="newsletter">
+      <div class="py-8 px-4">
+        <Container class="sm:w-4/5 lg:w-3/5">
+          <div class="grid gap-8">
+            <h2 id="newsletter" class="text-lg md:text-xl">newsletter</h2>
+            <div class="font-medium md:text-lg">
+              Subscribe to the weekly newsletter to get the best tips and
+              trends.
+            </div>
+            <div class="relative">
+              <div class="shadow-md shadow-gray-200">
+                <div class="flex items-center">
+                  <input
+                    type="text"
+                    id="email"
+                    class="px-8 py-6 flex-1 rounded-sm placeholder-current focus:outline-2 focus:outline-offset-2"
+                    placeholder="Enter your email "
+                  />
+                  <div class="absolute z-10 right-2">
+                    <Button size={"sm"} class="bg-green-300 rounded-lg">
+                      <div class="uppercase font-medium">subscribe</div>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-12">
+              {
+                socialMediaIcons.map((icon) => (
+                  <div class="text-gray-400 hover:text-gray-600">
+                    <Icon class="w-6 h-6" name={`mdi:${icon}`} />
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </Container>
+      </div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="footer" class="w-10/12 lg:w-full">
+    <div class="border-y border-solid border-gray-400">
+      <div class="flex divide-x divide-solid divide-gray-400">
+        <div class="flex-1">
+          <div class="px-6 py-12">
+            <div class="grid gap-4">
+              <div class="text-md uppercase font-medium text-gray-300">
+                categories
+              </div>
+              <ul class="grid gap-2">
+                {
+                  categories.map((category) => (
+                    <li class="capitalize font-medium transition hover:text-gray-300">
+                      {category}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <div class="px-6 py-12">
+            <div class="grid gap-4">
+              <div class="text-md uppercase font-medium text-gray-300">
+                utility
+              </div>
+              <ul class="grid gap-2">
+                {
+                  utilities.map((utility) => (
+                    <li class="capitalize transition hover:text-gray-300">
+                      {utility}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-3 py-12">
+      <div class="grid-gap-2">
+        <a href="http://www.webflow.com">
+          <div
+            class="transition-colors duration-200 ease-in hover:text-gray-300"
+          >
+            Powered by webflow
+          </div>
+          <div class="flex gap-2">
+            &copy; <div class="capitalize">shelton louis</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </Fragment>
+</HMFLayout>

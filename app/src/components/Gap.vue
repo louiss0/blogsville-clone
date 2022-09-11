@@ -4,6 +4,7 @@ import { onMounted, shallowRef } from "vue";
 interface Props {
   spaces: number;
   color?: string;
+  direction?: "horizontal" | "vertical";
 }
 
 const props = defineProps<Props>();
@@ -61,7 +62,8 @@ function changeElementWidthIfTheParentElementFulfilsTheseCOnditions(
     parentElementsDisplayIncludesInline,
     parentElementsDisplayIsFlex && parentElementStyleFlexDirectionIsRow,
     parentElementsDisplayIsGrid && parentElementStyleGridAutoFlowIsColumn,
-  ].some((value) => value);
+    props.direction === "horizontal",
+  ].some((value) => value === true);
 
   if (anyOfTheConditionsRequiredToSetTheWidthOfTheElementAreTrue) {
     element.style.width = `${parseInt(parentElementFontSize) * props.spaces}px`;
@@ -95,7 +97,8 @@ function changeHeightIfTheFollowingConditionsAreTrue(
     parentDisplayIsBlock,
     parentElementsDisplayIsGrid && parentElementStyleGridAutoFlowIsRow,
     parentElementsDisplayIsFlex && parentElementStyleFlexDirectionIsColumn,
-  ].some((value) => value);
+    props.direction === "vertical",
+  ].some((value) => value === true);
 
   if (anyOfTheConditionsRequiredToSetTheHeightOfTheElementAreTrue) {
     element.style.width = "auto";

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useAttrs, computed } from "vue";
+import { useAttrs, computed, ButtonHTMLAttributes } from "vue";
 
-interface Props {
+interface Props extends ButtonHTMLAttributes {
   href?: string;
   size?: "xs" | "sm" | "md" | "lg" | "xl";
 }

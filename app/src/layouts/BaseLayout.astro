@@ -26,7 +26,7 @@ const { title } = Astro.props as Props;
       @tailwind utilities;
 
       body {
-        @apply text-gray-900 bg-gray-50 font-body;
+        @apply text-gray-900 bg-gray-100 font-body;
       }
 
       h1,
@@ -58,14 +58,8 @@ const { title } = Astro.props as Props;
         font-size: clamp(0.75rem, 40vw, 1.25rem);
       }
 
-      img {
-        @apply aspect-square;
-      }
-
       p {
-        max-width: 60vw;
-
-        @apply leading-relaxed;
+        @apply leading-relaxed max-w-[60ch];
       }
     </style>
   </body>

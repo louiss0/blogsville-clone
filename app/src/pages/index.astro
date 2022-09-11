@@ -1,48 +1,347 @@
 ---
-import AstroTopFrameWorksCircle from "@/components/AstroTopFrameWorksCircle.astro";
 import Container from "@/components/Container.vue";
-import HMFLayout from "@/layouts/HMFLayout.astro";
+import bigLogo from "@/images/621dda5675dc1f82af54ee5c_logo-large.svg";
+import thumbSmall01 from "@/images/621d4a79435bab6eea782c50_thumb-large01.jpg";
+import thumbSmall02 from "@/images/621d4ad7d827d65fff5ba568_thumb-small02.jpg";
+import thumbSmall03 from "@/images/621d4b8a66577706a2f1db8f_thumb-small03.jpg";
+import thumbSmall04 from "@/images/621d4baa6cefe365c3dc269c_thumb-small04.jpg";
+import thumbSmall05 from "@/images/621d4c0a307cb1b071138600_thumb-small05.jpg";
+import thumbSmall06 from "@/images/621d4c3f00b9127c19e9e449_thumb-small06.jpg";
+import thumbSmall07 from "@/images/621d4c5a0b6f82472653cc1f_thumb-small07.jpg";
+import Card from "@/components/Card.vue";
+
+import authorImage1 from "@/images/621d41be3fef4a8c7a1b0f49_author01.jpg";
+import authorImage2 from "@/images/621d41e992af879a30685de1_author02.jpg";
+import authorImage3 from "@/images/621d41fe9af39e0644f01b2c_author03.jpg";
+
+import authorImage4 from "../images/621d420721efea4682f07081_author04.jpg";
+import authorImage5 from "../images/621f358c1fead8edf7574cc6_author05.jpg";
+import authorImage6 from "../images/621d421b7f79c2192dfe617a_author06.jpg";
+import authorImage7 from "../images/621d422d4e09607168f68e06_author07.jpg";
+
+import thumbSmall17 from "@/images/621d4d69fe08b37663eaec2a_thumb-small17.jpg";
+import thumbSmall18 from "@/images/621d4d82d8b55df54c81efc8_thumb-small18.jpg";
+import thumbSmall19 from "@/images/621d4d90a1be3d95ed4cea1d_thumb-small19.jpg";
+import Icon from "astro-icon";
+import Gap from "@/components/Gap.vue";
+import BlogsvilleLayout from "@/layouts/BlogsvilleLayout.astro";
+
+const tags = [
+  "books",
+  "clothes",
+  "coaching",
+  "ecommerce",
+  "excercise",
+  "health",
+  "holiday",
+  "marketing",
+  "tech",
+  "travel",
+  "university",
+];
+const categories = [
+  "business",
+  "design",
+  "education",
+  "health",
+  "shopping",
+  "travel",
+] as const;
+
+const authors = [
+  { image: authorImage1, name: "Esther Howard" },
+  { image: authorImage2, name: "Kristin Watson" },
+  { image: authorImage3, name: "Wade Warren" },
+  { image: authorImage4, name: "Ronald Richards" },
+  { image: authorImage5, name: "Cody Fisher" },
+  { image: authorImage6, name: "Wade Warren" },
+  { image: authorImage7, name: "Courtney Henry" },
+] as const;
+const indexesRequiredToFindFeaturedAuthors = [0, 1, 5];
+
+const featuredAuthors = authors.filter((_, index) =>
+  indexesRequiredToFindFeaturedAuthors.includes(index)
+);
+
+const trendingBlogs = [
+  {
+    thumbnail: thumbSmall17,
+    title: "What are the benefits of Traveling and Why is it Important?",
+  },
+  {
+    thumbnail: thumbSmall18,
+    title: "Which Countries Offer the Best Destinations for Travelers?",
+  },
+  {
+    thumbnail: thumbSmall19,
+    title: "What is the best way to avoid jet lag and stay Healthy?",
+  },
+];
+
+const firstTrendingBlog = trendingBlogs.at(0)!;
+
+const categoryIconNamesAndClasses = [
+  { name: "mdi:wallet-travel", class: "text-red-200" },
+  { name: "ic:outline-color-lens", class: "text-yellow-200" },
+  { name: "fluent:hat-graduation-12-regular", class: "text-green-200" },
+  { name: "icon-park-outline:heartbeat", class: "text-teal-200" },
+  { name: "ic:baseline-shopping-bag", class: "text-purple-300" },
+  { name: "uit:bag", class: "text-pink-200" },
+];
 ---
 
-<HMFLayout title="Home">
-  <Container slot="header">
-    <hgroup>
-      <h1>Complete Guide to Finding Your Perfect Tour Agent Match</h1>
-      <p>
-        Welcome to the astro and vue template made by
-        <a
-          href="https://www.twitter.com/SheltonLouisX"
-          class="hover:underline underline-offset-2"
-        >
-          Shelton Louis
-        </a>
-      </p>
-    </hgroup>
+<BlogsvilleLayout title="Home">
+  <Container
+    slot="header"
+    class="grid gap-12 w-4/5 lg:grid-cols-[60%,40%] lg:grid-rows-6 py-24"
+  >
+    <div
+      class="grid place-items-center gap-4 lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-2 lg:place-items-start"
+    >
+      <img src={bigLogo} alt="Blogsville Logo" />
+      <div class="text-lg text-gray-300 font-light">
+        The best blog in the world. Get more out of the news.
+      </div>
+    </div>
+    <div
+      class="grid gap-4 sm:grid-cols-2 md:cols-4 md:gap-12 lg:row-start-2 lg:row-end-7 lg:col-start-1 lg:col-end-2"
+    >
+      <div class="col-span-full">
+        <Card
+          src={thumbSmall01}
+          readTime={5}
+          createdAt="Mar 31"
+          title="The Complete Guide to Finding Your Perfect Tour Agent Match"
+          paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+          client:idle
+          isFirst
+        />
+      </div>
+      <Card
+        client:idle
+        src={thumbSmall02}
+        readTime={5}
+        createdAt="Mar 30"
+        title="5 Must-have items for separating yourself form the crowd"
+        paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+      />
+      <Card
+        client:idle
+        src={thumbSmall03}
+        readTime={5}
+        createdAt="Mar 29"
+        title="How to avoid making the asme unhealthy purchases again"
+        paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+      />
+      <Card
+        client:idle
+        src={thumbSmall04}
+        readTime={5}
+        createdAt="Mar 28"
+        title="Introduction: What makes Shooping so Globally Addictive?"
+        paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+      />
+      <Card
+        src={thumbSmall05}
+        readTime={5}
+        createdAt="Mar 27"
+        title="What are the best free and paid tools for web designers?"
+        paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+        client:idle
+      />
+      <Card
+        src={thumbSmall06}
+        readTime={5}
+        createdAt="Mar 31"
+        title="The importance od Designing a User-Friendly Website or Mobile App"
+        paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+        client:idle
+      />
+      <Card
+        src={thumbSmall07}
+        readTime={5}
+        createdAt="Mar 31"
+        title="How to Turn Your Ideas into Reality with These 8 Cool Design Apps"
+        paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+        client:idle
+      />
+    </div>
 
-    <p>
-      This section is the section that is supposed to introductory content like
-      a hero section. I call this layout the <abbr
-        title="Header Main and Footer Layout"
-        class="underline-offset-2">HMFLayout</abbr
-      >
-    </p>
+    <Container
+      class="sm:w-10/12 md:8/12 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-7 lg:mx-0 lg:w-full"
+    >
+      <div aria-labelledby="featured-authors">
+        <div class="bg-white shadow-sm shadow-gray-400">
+          <div class="px-4 py-8">
+            <div class="grid gap-4">
+              <div class="uppercase text-gray-400">Featured Authors</div>
+              <div class="grid gap-2">
+                {
+                  featuredAuthors.map(({ image, name }) => (
+                    <div class="flex gap-4 items-center">
+                      <img class="w-8 rounded-full" src={image} alt={name} />
+                      <div class="text-lg">{name}</div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Gap client:idle direction={"vertical"} spaces={4} />
+      <div aria-labelledby="tags">
+        <div class="bg-white shadow-sm shadow-gray-500">
+          <div class="px-4 py-8">
+            <div class="grid gap-4">
+              <div class="uppercase text-gray-400">Tags</div>
+              <div class="flex flex-wrap gap-2 lg:w-4/5">
+                {
+                  tags.map((tag) => (
+                    <div class="capitalize">
+                      <div class="rounded-sm border border-gray-400 border-solid">
+                        <div class="py-2 px-3">{tag}</div>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Gap client:idle direction={"vertical"} spaces={4} />
+      <div aria-labelledby="trending">
+        <div class="p-4 lg:p-0">
+          <div class="bg-white shadow-md shadow-gray-400">
+            <div class="px-4 py-8">
+              <div class="grid gap-4">
+                <div class="uppercase text-gray-400">trending</div>
+                <div class="divide-y-2 divide-gray-400">
+                  {
+                    trendingBlogs.map(({ thumbnail, title }) => (
+                      <div class="flex gap-1">
+                        <div class="px-1 py-3">
+                          <img
+                            src={thumbnail}
+                            alt=""
+                            class="w-8 rounded-full aspect-square"
+                          />
+                          <span>{title}</span>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
   </Container>
-  <Container slot="main">
-    <p>
-      Enim egestas quis ullamcorper cursus nullam nisi, non, nulla. Vitae cursus
-      convallis proin porta habitasse diam quis convallis. Augue molestie
-      tincidunt sed in lacus, sodales etiam. Aliquam cursus amet pharetra sit
-      ipsum magna. Facilisis rhoncus eget tempor, duis in. Auctor pulvinar enim
-      egestas fermentum euismod tortor. Vel morbi porta eleifend placerat ut
-      porttitor in in pellentesque. Accumsan sit cum aenean senectus tristique
-      nisl quis eget. Tristique mi molestie justo lobortis laoreet. Quam urna ut
-      adipiscing netus eget.
-      <kbd>ctrl</kbd>
-      <span>+</span>
-      <kbd>space</kbd>
-    </p>
-  </Container>
-  <Container slot="footer" class="w-3/5 grid place-items-center">
-    <AstroTopFrameWorksCircle revealedFrameworks={["vue"]} />
-  </Container>
-</HMFLayout>
+
+  <Fragment slot="main">
+    <div class="bg-gray-900">
+      <div class="py-12 px-4">
+        <div class="grid lg:grid-cols-8">
+          <div class="lg:col-start-1 lg:col-span-2">
+            <section aria-labelledby="categories">
+              <div class="grid gap-4">
+                <div class="uppercase text-gray-400">Categories</div>
+                <ul class="grid gap-4 justify-start text-gray-200">
+                  {
+                    categories.map((category, index) => {
+                      const { name, class: $class } =
+                        categoryIconNamesAndClasses[index]!;
+                      return (
+                        <li class="transition-colors duration-200 ease-in hover:bg-gray-300 hover:text-gray-900">
+                          <div class="border border-solid border-gray-300 hover:border-gray-500">
+                            <div class="px-3 py-1">
+                              <div class="flex gap-2 items-center">
+                                <Icon name={name} class={`w-8 h-8 ${$class}`} />
+                                <span class=" capitalize">{category}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      );
+                    })
+                  }
+                </ul>
+              </div>
+            </section>
+            <blockquote>
+              <div>
+                “Many of life’s failures are people who did not realize how
+                close they were to success when they gave up.”
+              </div>
+              <cite>— THOMAS A. EDISON</cite>
+            </blockquote>
+          </div>
+
+          <div class="relative isolate lg:col-start-3 lg:col-end-6">
+            <div class="h-96 w-full">
+              <img
+                src={firstTrendingBlog.thumbnail}
+                alt=""
+                class="absolute w-full h-full -z-10"
+              />
+              <div class="absolute bottom-8">
+                <div class="text-gray-200">
+                  <div class="px-4 py-6">
+                    <div class="grid gap-2">
+                      <div class="flex gap-4">
+                        <span>Mar 15</span><span>5 min read</span>
+                      </div>
+                      <div class="sm:w-[50ch]">
+                        <div class="text-2xl font-bold">
+                          {firstTrendingBlog.title}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:hidden">
+            <Gap spaces={6} client:idle direction={"vertical"} />
+          </div>
+          <div class="lg:col-start-7 lg:col-span-2">
+            <section aria-labelledby="authors">
+              <div class="grid gap-4">
+                <div class="uppercase text-gray-300">authors</div>
+                <ul class="text-gray-200">
+                  <div class="grid gap-2">
+                    {
+                      authors.map(({ image, name }) => (
+                        <li>
+                          <div class="flex gap-2">
+                            <img
+                              src={image}
+                              alt={name}
+                              class="w-8 h-8 rounded-full"
+                            />
+                            <span class="capitalize ">{name}</span>
+                          </div>
+                        </li>
+                      ))
+                    }
+                  </div>
+                </ul>
+              </div>
+            </section>
+            <blockquote class="grid-gap-2">
+              <div>
+                “Money and success don’t change people; they merely amplify what
+                is already there.”
+              </div><cite>— WILL SMITH</cite>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Fragment>
+</BlogsvilleLayout>

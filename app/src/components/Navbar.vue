@@ -3,7 +3,8 @@ import { NavLinks } from "@/types";
 import { useToggle } from "@vueuse/shared";
 import Container from "./Container.vue";
 
-const [showGridIcon, toggleGridIcon] = useToggle();
+const [showGridIcon, toggleGridIcon] = useToggle(true);
+
 const links: ReadonlyArray<NavLinks> = [
   { path: "/", text: "Home" },
   { path: "/categories", text: "Categories" },
@@ -18,13 +19,45 @@ const links: ReadonlyArray<NavLinks> = [
     <div class="uppercase">
       <Container class="w-5/6 max-w-screen-xl font-bold">
         <div data-padding-layer class="py-3 px-6">
-          <div data-content-layer class="flex items-center justify-between">
-            <a href="/"
-              ><span class="text-2xl">
-                <div class="px-3 py-1">Blogsville</div>
-              </span></a
-            >
-            <div data-grid @click="toggleGridIcon()">
+          <div
+            data-content-layer
+            class="flex items-center justify-between h-16"
+          >
+            <a href="/">
+              <div class="px-3 py-6">
+                <img
+                  src="@/images/621f991fcec6662e2f39abbf_logo.svg"
+                  alt="Blogsville"
+                />
+              </div>
+            </a>
+
+            <ul class="hidden lg:block">
+              <div class="flex items-center w-3/5 h-full">
+                <li
+                  v-for="{ path, text } of links"
+                  class="grid place-items-center flex-1 h-full"
+                >
+                  <a :href="path">
+                    <div class="px-3 py-6">
+                      {{ text }}
+                    </div>
+                  </a>
+                </li>
+                <div class="flex gap-2">
+                  <SearchIcon />
+                  <div class="relative">
+                    <div class="absolute -top-3 -right-3">
+                      <div class="bg-green-300 rounded-full">
+                        <div class="py-1 px-1">0</div>
+                      </div>
+                    </div>
+                    <ShoppingCartIcon />
+                  </div>
+                </div>
+              </div>
+            </ul>
+            <button class="lg:hidden" @click="toggleGridIcon()">
               <Transition
                 mode="out-in"
                 enter-active-class="transform transition-transform ease-out duration-300"
@@ -41,7 +74,7 @@ const links: ReadonlyArray<NavLinks> = [
                   <CloseIcon />
                 </template>
               </Transition>
-            </div>
+            </button>
           </div>
         </div>
       </Container>
