@@ -1,0 +1,26 @@
+---
+export interface Props {
+  customerImage: string;
+  customerName: string;
+  customerJob: string;
+  paragraph: string;
+}
+
+const { customerImage, customerName, customerJob, paragraph } =
+  Astro.props as Props;
+---
+
+<div class="shadow-md shadow-gray-400">
+  <div class="px-4 py-6">
+    <p>{paragraph}</p>
+    <div class="flex gap-2 items-center">
+      <div class="w-16 h-16">
+        <img src={customerImage} alt={customerName} />
+      </div>
+    </div>
+    <div class="grid gap-2">
+      <div class="text-lg font-thin">{customerName}</div>
+      <div class="text-gray-400 uppercase">{customerJob}</div>
+    </div>
+  </div>
+</div>

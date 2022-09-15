@@ -21,8 +21,11 @@ const classObject = computed(() => ({
 
 <template>
   <template v-if="href">
-    <a :href="href" :class="[$class, classObject]" v-bind="restAttrs">
-      >
+    <a
+      :href="href"
+      :class="['inline-block', $class, classObject]"
+      v-bind="restAttrs"
+    >
       <slot />
     </a>
   </template>

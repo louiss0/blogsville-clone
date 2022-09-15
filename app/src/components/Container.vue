@@ -1,16 +1,15 @@
 <script lang="ts" setup>
-import { useAttrs } from "vue";
-import type { HtmlHTMLAttributes } from "vue";
+import { HtmlHTMLAttributes, useAttrs } from "vue";
 
-export interface Props extends HtmlHTMLAttributes {
-  class: string;
-}
+const { class: $class, ...restAttrs } = useAttrs();
 
-const { class: $class } = useAttrs();
+interface Props extends HtmlHTMLAttributes {}
+
+defineProps<Props>();
 </script>
 
 <template>
-  <div :class="`mx-auto max-w-screen-lg ${$class}`">
+  <div :class="`mx-auto max-w-screen-lg ${$class}`" v-bind="{ restAttrs }">
     <slot> <span>Noting to contain</span> </slot>
   </div>
 </template>

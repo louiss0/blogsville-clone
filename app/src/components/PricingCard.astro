@@ -1,0 +1,51 @@
+---
+import { Icon } from "astro-icon";
+import Button from "./Button.vue";
+
+export interface Props {
+  plan: string;
+  price: number;
+  currency: string;
+  periodicity: string;
+  salesPitch: string;
+  benefits: string[];
+}
+
+const { benefits, currency, periodicity, plan, price, salesPitch } =
+  Astro.props as Props;
+---
+
+<div class="px-6 py-8">
+  <div class="grid gap-12">
+    <div class="grid gap-4">
+      <div class="text-md capitalize">{plan}</div>
+      <div>
+        <span>${price}</span>
+        <span>{currency}</span>
+        <span class="text-gray-500">/{periodicity}</span>
+      </div>
+    </div>
+    <div class="grid gap-6">
+      <p>{salesPitch}</p>
+      <ul class="grid gap-2">
+        {
+          benefits.map((benefit) => (
+            <li class="flex gap-2">
+              <Icon
+                name="mdi:checkbox-marked-outline"
+                class="w-6 h-6 text-green-600"
+              />
+              <span>{benefit}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <Button
+        size={"lg"}
+        class="text-gray-900 bg-green-300 uppercase rounded-lg"
+      >
+        get unlimited access
+      </Button>
+    </div>
+  </div>
+</div>

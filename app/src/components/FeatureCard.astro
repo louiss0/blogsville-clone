@@ -1,0 +1,25 @@
+---
+import Icon from "astro-icon";
+
+export interface Props {
+  iconName: string;
+  iconClass: string;
+  featureParagraph: string;
+  featureType: string;
+}
+
+const { iconName, featureParagraph, featureType, iconClass } =
+  Astro.props as Props;
+---
+
+<div class="border-2 border-solid border-gray-500 rounded-sm">
+  <div class="py-4 px-4">
+    <div class="grid gap-4">
+      <div class="grid gap-6">
+        <Icon name={iconName} class={iconClass} />
+        <div class="text-gray-400">{featureType}</div>
+      </div>
+      <p>{featureParagraph}</p>
+    </div>
+  </div>
+</div>
