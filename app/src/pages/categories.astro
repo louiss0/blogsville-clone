@@ -1,0 +1,119 @@
+---
+import BlogsvilleLayout from "@/layouts/BlogsvilleLayout.astro";
+import Icon from "astro-icon";
+import thumbSmall01 from "@/images/621d4a79435bab6eea782c50_thumb-large01.jpg";
+import thumbSmall02 from "@/images/621d4ad7d827d65fff5ba568_thumb-small02.jpg";
+import thumbSmall03 from "@/images/621d4b8a66577706a2f1db8f_thumb-small03.jpg";
+import thumbSmall04 from "@/images/621d4baa6cefe365c3dc269c_thumb-small04.jpg";
+import thumbSmall05 from "@/images/621d4c0a307cb1b071138600_thumb-small05.jpg";
+import thumbSmall06 from "@/images/621d4c3f00b9127c19e9e449_thumb-small06.jpg";
+import Card from "@/components/Card.vue";
+import Container from "@/components/Container.vue";
+import Button from "@/components/Button.vue";
+
+const categories = [
+  "business",
+  "design",
+  "education",
+  "health",
+  "shopping",
+  "travel",
+] as const;
+
+const categoryIconNamesAndClasses = [
+  { name: "mdi:wallet-travel", $class: "text-red-200" },
+  { name: "ic:outline-color-lens", $class: "text-yellow-200" },
+  { name: "fluent:hat-graduation-12-regular", $class: "text-green-200" },
+  { name: "icon-park-outline:heartbeat", $class: "text-teal-200" },
+  { name: "ic:baseline-shopping-bag", $class: "text-purple-300" },
+  { name: "uit:bag", $class: "text-pink-200" },
+];
+---
+
+<BlogsvilleLayout title="Categories">
+  <div slot="bottom-header" class="bg-gray-900">
+    <Container class="w-4/5 lg:w-11/12 max-w-screen-xl">
+      <div class="px-3 py-6">
+        <div class="flex">
+          <ul class="flex gap-4 lg:gap-2 lg:justify-end flex-wrap lg:w-11/12">
+            {
+              categories.map((category, index) => {
+                const { name, $class } = categoryIconNamesAndClasses[index]!;
+                return (
+                  <li class="text-gray-300 capitalize">
+                    <div class="transition-colors duration-500 ease-in rounded-lg hover:bg-gray-600">
+                      <Button size={"sm"} href={`/${category}`}>
+                        <div class="flex gap-1">
+                          <Icon name={name} class={` w-6 h-6 ${$class}`} />
+                          <span>{category}</span>
+                        </div>
+                      </Button>
+                    </div>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+      </div>
+    </Container>
+  </div>
+
+  <Container slot="top-main" class="max-w-screen-xl">
+    <div class="px-2 py-8">
+      <div class="grid gap-4">
+        <h1>All Posts</h1>
+        <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-12">
+          <Card
+            src={thumbSmall01}
+            readTime={5}
+            createdAt="Mar 31"
+            title="The Complete Guide to Finding Your Perfect Tour Agent Match"
+            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+            client:idle
+          />
+          <Card
+            client:idle
+            src={thumbSmall02}
+            readTime={5}
+            createdAt="Mar 30"
+            title="5 Must-have items for separating yourself form the crowd"
+            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+          />
+          <Card
+            client:idle
+            src={thumbSmall03}
+            readTime={5}
+            createdAt="Mar 29"
+            title="How to avoid making the asme unhealthy purchases again"
+            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+          />
+          <Card
+            client:idle
+            src={thumbSmall04}
+            readTime={5}
+            createdAt="Mar 28"
+            title="Introduction: What makes Shooping so Globally Addictive?"
+            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+          />
+          <Card
+            src={thumbSmall05}
+            readTime={5}
+            createdAt="Mar 27"
+            title="What are the best free and paid tools for web designers?"
+            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+            client:idle
+          />
+          <Card
+            src={thumbSmall06}
+            readTime={5}
+            createdAt="Mar 31"
+            title="The importance od Designing a User-Friendly Website or Mobile App"
+            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nobis."
+            client:idle
+          />
+        </div>
+      </div>
+    </div>
+  </Container>
+</BlogsvilleLayout>

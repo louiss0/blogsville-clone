@@ -1,27 +1,27 @@
 ---
 import Container from "@/components/Container.vue";
 import bigLogo from "@/images/621dda5675dc1f82af54ee5c_logo-large.svg";
-import thumbSmall01 from "@/images/621d4a79435bab6eea782c50_thumb-large01.jpg";
-import thumbSmall02 from "@/images/621d4ad7d827d65fff5ba568_thumb-small02.jpg";
-import thumbSmall03 from "@/images/621d4b8a66577706a2f1db8f_thumb-small03.jpg";
-import thumbSmall04 from "@/images/621d4baa6cefe365c3dc269c_thumb-small04.jpg";
-import thumbSmall05 from "@/images/621d4c0a307cb1b071138600_thumb-small05.jpg";
-import thumbSmall06 from "@/images/621d4c3f00b9127c19e9e449_thumb-small06.jpg";
-import thumbSmall07 from "@/images/621d4c5a0b6f82472653cc1f_thumb-small07.jpg";
+import thumbSmall01 from "../images/621d4a79435bab6eea782c50_thumb-large01.jpg";
+import thumbSmall02 from "../images/621d4ad7d827d65fff5ba568_thumb-small02.jpg";
+import thumbSmall03 from "../images/621d4b8a66577706a2f1db8f_thumb-small03.jpg";
+import thumbSmall04 from "../images/621d4baa6cefe365c3dc269c_thumb-small04.jpg";
+import thumbSmall05 from "../images/621d4c0a307cb1b071138600_thumb-small05.jpg";
+import thumbSmall06 from "../images/621d4c3f00b9127c19e9e449_thumb-small06.jpg";
+import thumbSmall07 from "../images/621d4c5a0b6f82472653cc1f_thumb-small07.jpg";
 import Card from "@/components/Card.vue";
 
-import authorImage1 from "@/images/621d41be3fef4a8c7a1b0f49_author01.jpg";
-import authorImage2 from "@/images/621d41e992af879a30685de1_author02.jpg";
-import authorImage3 from "@/images/621d41fe9af39e0644f01b2c_author03.jpg";
+import authorImage1 from "../images/621d41be3fef4a8c7a1b0f49_author01.jpg";
+import authorImage2 from "../images/621d41e992af879a30685de1_author02.jpg";
+import authorImage3 from "../images/621d41fe9af39e0644f01b2c_author03.jpg";
 
 import authorImage4 from "../images/621d420721efea4682f07081_author04.jpg";
 import authorImage5 from "../images/621f358c1fead8edf7574cc6_author05.jpg";
 import authorImage6 from "../images/621d421b7f79c2192dfe617a_author06.jpg";
 import authorImage7 from "../images/621d422d4e09607168f68e06_author07.jpg";
 
-import thumbSmall17 from "@/images/621d4d69fe08b37663eaec2a_thumb-small17.jpg";
-import thumbSmall18 from "@/images/621d4d82d8b55df54c81efc8_thumb-small18.jpg";
-import thumbSmall19 from "@/images/621d4d90a1be3d95ed4cea1d_thumb-small19.jpg";
+import thumbSmall17 from "../images/621d4d69fe08b37663eaec2a_thumb-small17.jpg";
+import thumbSmall18 from "../images/621d4d82d8b55df54c81efc8_thumb-small18.jpg";
+import thumbSmall19 from "../images/621d4d90a1be3d95ed4cea1d_thumb-small19.jpg";
 import Icon from "astro-icon";
 import Gap from "@/components/Gap.vue";
 import BlogsvilleLayout from "@/layouts/BlogsvilleLayout.astro";
@@ -39,14 +39,6 @@ const tags = [
   "travel",
   "university",
 ];
-const categories = [
-  "business",
-  "design",
-  "education",
-  "health",
-  "shopping",
-  "travel",
-] as const;
 
 const authors = [
   { image: authorImage1, name: "Esther Howard" },
@@ -79,6 +71,15 @@ const trendingBlogs = [
 ];
 
 const firstTrendingBlog = trendingBlogs.at(0)!;
+
+const categories = [
+  "business",
+  "design",
+  "education",
+  "health",
+  "shopping",
+  "travel",
+] as const;
 
 const categoryIconNamesAndClasses = [
   { name: "mdi:wallet-travel", class: "text-red-200" },

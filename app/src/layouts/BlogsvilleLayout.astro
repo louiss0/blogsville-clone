@@ -31,18 +31,17 @@ const socialMediaIcons = ["twitter", "instagram", "linkedin"];
 ---
 
 <HMFLayout title={title}>
-  <Fragment slot="header">
-    <slot name="header" />
-  </Fragment>
+  <slot slot="header" name="bottom-header" />
 
   <Fragment slot="main">
-    <slot name="main" />
+    <slot name="top-main" />
+
     <section aria-labelledby="membership">
       <div class="bg-white shadow-sm shadow-gray-200">
-        <Container class="w-10/12 md:w-8/12 text-center">
+        <Container class="w-10/12 md:w-8/12">
           <div class="px-6 py-10">
-            <div class="grid gap-6">
-              <div class="text-lg lg:text-2xl text-gray-300">
+            <div class="grid gap-6 place-items-center">
+              <div class="text-lg text-center lg:text-2xl text-gray-400">
                 UPGRADE TO A READER MEMBERSHIP FOR $4/MONTH
               </div>
               <h2 id="membership">Get more out of the news</h2>
@@ -57,9 +56,10 @@ const socialMediaIcons = ["twitter", "instagram", "linkedin"];
         </Container>
       </div>
     </section>
+
     <section aria-labelledby="newsletter">
       <div class="py-8 px-4">
-        <Container class="sm:w-4/5 lg:w-3/5">
+        <Container class="w-full sm:w-4/5 lg:w-3/5">
           <div class="grid gap-8">
             <h2 id="newsletter" class="text-lg md:text-xl">newsletter</h2>
             <div class="font-medium md:text-lg">
@@ -98,7 +98,7 @@ const socialMediaIcons = ["twitter", "instagram", "linkedin"];
     </section>
   </Fragment>
 
-  <Fragment slot="footer" class="w-10/12 lg:w-full">
+  <Fragment slot="footer">
     <div class="border-y border-solid border-gray-400">
       <div class="flex divide-x divide-solid divide-gray-400">
         <div class="flex-1">

@@ -1,0 +1,208 @@
+---
+import Container from "@/components/Container.vue";
+import BlogsvilleLayout from "@/layouts/BlogsvilleLayout.astro";
+
+import aboutImg from "../images/621e7ead7d8310311d6a013c_about-herobg-poster-00001.jpg";
+import authorImage from "../images/621d41be3fef4a8c7a1b0f49_author01.jpg";
+
+import aboutPhoto500 from "../images/621e7f4cffebfeb5961e4bf9_about-photo-p-500.jpeg";
+import aboutPhoto800 from "../images/621e7f4cffebfeb5961e4bf9_about-photo-p-800.jpeg";
+import aboutPhoto1080 from "../images/621e7f4cffebfeb5961e4bf9_about-photo-p-1080.jpeg";
+
+import aboutPhoto1280 from "../images/621e7f4cffebfeb5961e4bf9_about-photo.jpg";
+
+import logo1 from "../images/621e7f4a583c79455c24f314_partner-logo01.svg";
+
+import logo2 from "../images/621e7f4a7e35c115ed4a7041_partner-logo02.svg";
+import logo3 from "../images/621e7f4a6e490ce0d5e2edd5_partner-logo03.svg";
+import logo4 from "../images/621e7f4b1e337b8674684545_partner-logo04.svg";
+import logo5 from "../images/621e7f4a4ef50ae6620c7f40_partner-logo05.svg";
+import logo6 from "../images/621e7f4ab274cb864fe07b5e_partner-logo06.svg";
+
+import authorImage1 from "../images/621d41be3fef4a8c7a1b0f49_author01.jpg";
+import authorImage2 from "../images/621d41e992af879a30685de1_author02.jpg";
+import authorImage3 from "../images/621d41fe9af39e0644f01b2c_author03.jpg";
+
+import authorImage4 from "../images/621d420721efea4682f07081_author04.jpg";
+import authorImage5 from "../images/621f358c1fead8edf7574cc6_author05.jpg";
+import authorImage6 from "../images/621d421b7f79c2192dfe617a_author06.jpg";
+import authorImage7 from "../images/621d422d4e09607168f68e06_author07.jpg";
+import Gap from "@/components/Gap.vue";
+
+const logos = [logo1, logo2, logo3, logo4, logo5, logo6];
+
+const teamMembers = [
+  { name: "Cody Fisher", job: "SOFTWARE DEVELOPER", image: authorImage5 },
+  { name: "Courtney Henry", job: "TEAM LEADER", image: authorImage7 },
+  { name: "Esther Howard", job: "SOFTWARE DEVELOPER", image: authorImage1 },
+  { name: "Jenny Wilson", job: "UI/UX DESIGNER", image: authorImage6 },
+  { name: "Kristin Watson", job: "SCRUM MASTER", image: authorImage2 },
+  { name: "Ronald Richards", job: "UI/UX DESIGNER", image: authorImage4 },
+  { name: "Wade Warren", job: "SOFTWARE TESTER", image: authorImage3 },
+];
+---
+
+<BlogsvilleLayout title="About">
+  <Fragment slot="bottom-header">
+    <div class="div">
+      <img src={aboutImg} alt="Beach Photo" width="1280" height="720" />
+    </div>
+
+    <section aria-label="about-esther-howard" class="px-2 py-20">
+      <Container class="w-11/12">
+        <div class="grid gap-8">
+          <div id="top-section" class="lg:text-5xl font-bold">
+            <div class="py-2 px-6">
+              I am a content writer and blogger who loves to write and help
+              people to learn.
+              <br class="hidden lg:block h-8" />
+              I always try to stay on top of the latest trends.
+            </div>
+          </div>
+          <div id="bottom-section" class="font-semibold">
+            <div
+              class:list={[
+                "md:flex gap-4",
+                "lg:grid lg:grid-cols-[30%,_repeat(2,_1fr)]",
+              ]}
+            >
+              <div id="image-box">
+                <div class="py-10">
+                  <div class="flex gap-2">
+                    <div class="w-10 h-10">
+                      <img
+                        class="aspect-square rounded-full"
+                        src={authorImage}
+                        alt="Esther Howard"
+                        width="160"
+                        height="160"
+                      />
+                    </div>
+                    <span>Esther Howard</span>
+                  </div>
+                </div>
+              </div>
+              <div id="box--1">
+                <div class="grid gap-12">
+                  <p>
+                    Tellus lectus enim nibh mattis diam morbi quis. Sed congue
+                    nullam maecenas vulputate vel. Senectus nibh consectetur
+                    massa ultrices condimentum sodales in. Adipiscing risus
+                    ullamcorper tristique.
+                  </p>
+                  <p>
+                    Eros, quis et ac sit aenean. Ipsum nunc bibendum et sed sed
+                    quisque nibh laoreet lacus. Neque molestie massa accumsan
+                    augue eget tellus. Nullam sit nunc nam nulla neque sed elit
+                    eu tellus. Ante est purus ac vel egestas lacus aliquam
+                    cursus.
+                  </p>
+                </div>
+              </div>
+              <div id="box--2">
+                <div class="grid gap-12">
+                  <p>
+                    Sed faucibus amet, massa faucibus id. Amet nulla gravida
+                    aliquam gravida accumsan, malesuada vel. Lacus metus,
+                    elementum proin tortor, augue id. Sed viverra diam nunc urna
+                    adipiscing aliquam.
+                  </p>
+                  <p>
+                    Enim sit et eu egestas dolor tellus odio maecenas convallis
+                    montes, pellentesque nisi, congue augue consectetur.
+                    Pulvinar neque magna nisl eget purus erat pellentesque odio
+                    porttitor. Egestas ut tempor nibh in sed lectus volutpat
+                    augue.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </Fragment>
+
+  <Fragment slot="top-main">
+    <section aria-label="about-partner" class="px-4 py-12">
+      <div class="grid gap-8 lg:flex">
+        <figure class="grid place-items-center">
+          <picture>
+            <source media="(min-width: 1280px)" srcset={aboutPhoto1280} />
+            <source media="(min-width: 1024px)" srcset={aboutPhoto1080} />
+            <source media="(min-width: 768px)" srcset={aboutPhoto800} />
+            <img
+              class="object-cover"
+              src={aboutPhoto500}
+              alt="Woman with cup holding a book"
+            />
+          </picture>
+        </figure>
+        <div class="grid gap-8 py-6">
+          <div class="text-2xl font-bold lg:text-4xl">
+            I am an avid blogger and I love to write about anything and
+            everything, helping people to be healthier and to smile more
+          </div>
+          <p class="font-semibold">
+            Enim egestas quis ullamcorper cursus nullam nisi, non, nulla. Vitae
+            cursus convallis proin porta habitasse diam quis convallis. Augue
+            molestie tincidunt sed in lacus, sodales etiam. Aliquam cursus amet
+            pharetra sit ipsum magna. Facilisis rhoncus eget tempor, duis in
+            Auctor pulvinar enim egestas fermentum cursus convallis.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="grid place-items-center py-8 px-2" aria-label="logos">
+      <div class="grid grid-cols-3 lg:grid-cols-6 gap-4">
+        {logos.map((logo) => <img src={logo} alt="" />)}
+      </div>
+    </section>
+
+    <section
+      class="bg-gray-900 text-gray-50 px-6 py-20"
+      aria-labelledby="team-members"
+    >
+      <div id="team-members__intro">
+        <div class="grid place-items-center gap-2">
+          <h2 id="team-members" class="text-gray-50">Team Members</h2>
+
+          <div class="text-gray-300">WINNING STARTS WITH A TEAM</div>
+        </div>
+      </div>
+
+      <Gap spaces={2} client:idle />
+
+      <div id="team-members__photos" class="text-center">
+        <Container class="lg:w-10/12">
+          <div
+            class:list={[
+              "flex justify-center flex-wrap",
+              "gap-4 md:gap-8 lg:gap-20 xl:gap-24",
+            ]}
+          >
+            {
+              teamMembers.map(({ name, job, image }) => (
+                <div class="grid place-items-center gap-2">
+                  <div class="px-2 py-4">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24">
+                      <img
+                        class="aspect-square rounded-full"
+                        src={image}
+                        alt={name}
+                      />
+                    </div>
+                  </div>
+                  <div class="grid place-items-center gap-2">
+                    <div class="text-lg capitalize">{name}</div>
+                    <div class="text-xs text-gray-400">{job}</div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </Container>
+      </div>
+    </section>
+  </Fragment>
+</BlogsvilleLayout>

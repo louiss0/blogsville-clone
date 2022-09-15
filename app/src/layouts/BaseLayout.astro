@@ -21,10 +21,6 @@ const { title } = Astro.props as Props;
   <body>
     <slot />
     <style lang="postcss" is:global>
-      @tailwind base;
-      @tailwind components;
-      @tailwind utilities;
-
       body {
         @apply text-gray-900 bg-gray-100 font-body;
       }

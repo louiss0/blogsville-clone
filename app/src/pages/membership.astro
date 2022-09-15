@@ -1,0 +1,283 @@
+---
+import BlogsvilleLayout from "@/layouts/BlogsvilleLayout.astro";
+import FAQAccordion from "@/components/FAQAccordion.vue";
+
+import customerImage1 from "../images/621f42bc352f584e0a47206a_review01.jpg";
+import customerImage2 from "../images/621f42bc3090a94f28878c6a_review02.jpg";
+import customerImage3 from "../images/621f42bd1fead8828c57b60a_review03.jpg";
+import customerImage4 from "../images/621f42bd377af62f258e6afa_review04.jpg";
+import customerImage5 from "../images/621f42bcba2a9f0f9fc6e221_review05.jpg";
+import customerImage6 from "../images/621f42bc4b15974ca1ff001a_review06.jpg";
+import customerImage7 from "../images/621f42bd5d07ee3b3d4b9b10_review07.jpg";
+import customerImage8 from "../images/621f42bb1d22916ad381ef7d_review08.jpg";
+
+import customerImage9 from "../images/621f42bcb97873b54be37b3b_review09.jpg";
+import PricingCard from "@/components/PricingCard.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import CustomerCard from "@/components/CustomerCard.astro";
+
+const pricingCards = [
+  {
+    plan: "Reader Plan",
+    price: 4.0,
+    currency: "USD",
+    periodicity: "Monthly",
+    salesPitch:
+      "Consider becoming a premium member, you will get access to the following perks:",
+    benefits: [
+      "Premium articles",
+      "Writing tips and tricks",
+      "Personal support team",
+      "Learn how to monetize your blog",
+    ],
+  },
+  {
+    plan: "Academic Plan",
+    price: 40.0,
+    currency: "USD",
+    periodicity: "Yearly",
+    salesPitch:
+      "Consider becoming a premium member, you will get access to the following perks:",
+    benefits: [
+      "Premium articles",
+      "Writing tips and tricks",
+      "Personal support team",
+      "Learn how to monetize your blog",
+    ],
+  },
+];
+
+const features = [
+  {
+    iconName: "majesticons:shopping-bag-line",
+    iconClass: "w-10 h-10 text-pink-400",
+    paragraph:
+      "Orci ullamcorper enim sed id non pretium. Euismod orci enim, cursus risus. Vitae dui ut augue condimentum.",
+    type: "SPECIAL DEALS",
+  },
+  {
+    iconName: "bi:lightning-charge",
+    iconClass: "w-10 h-10 text-yellow-300",
+    paragraph:
+      "Tincidunt urna velit purus ultrices mauris. Ac viverra in nascetur arcu, placerat curabitur nullam mauris in proin integer turpis.",
+    type: "REWARDS",
+  },
+  {
+    iconName: "ri:fire-line",
+    iconClass: "w-10 h-10 text-green-400",
+    paragraph:
+      "Amet, eget dignissim lacus, mauris maecenas pulvinar. Eu dignissim senectus nam at. Metus, massa vel fringilla dolor.",
+    type: "TRENDS",
+  },
+  {
+    iconName: "icon-park-outline:diamond",
+    iconClass: "w-10 h-10 text-emerald-300",
+    paragraph: "EXTRA ARTICLES",
+    type: "Quisque volutpat enim sapien senectus risus. Enim fames at fermentum rutrum adipiscing fermentum tortor.",
+  },
+  {
+    iconName: "ic:outline-star-border",
+    iconClass: "w-10 h-10 text-indigo-400",
+    paragraph:
+      "Amet, nisl pulvinar elementum dui purus dui, blandit justo, nisi. A scelerisque diam enim enim sed amet urna nulla.",
+    type: "PREMIUM TOOLS",
+  },
+  {
+    iconName: "akar-icons:envelope",
+    iconClass: "w-10 h-10 text-pink-400",
+    paragraph:
+      "Hac posuere sed auctor sit sed tristique. Maecenas egestas sit morbi cursus quis. Arcu diam in neque pharetra.",
+    type: "NEWSLETTER",
+  },
+];
+
+const customerTestimonies = [
+  {
+    customerImage: customerImage1,
+    customerName: "Darlene",
+    customerJob: "SOFTWARE TESTER",
+    paragraph:
+      "Lobortis semper sit volutpat ut. Nec neque nunc urna, a eu nec sem faucibus turpis. Ut mi vulputate risus nec consectetur.",
+  },
+  {
+    customerImage: customerImage2,
+    customerName: "Bessie",
+    customerJob: "SOFTWARE DEVELOPER",
+    paragraph:
+      "Nec nulla tempus egestas placerat enim. Pulvinar phasellus amet fermentum neque risus ipsum eu. Feugiat ac mattis amet purus. In viverra id nam vel elit.",
+  },
+  {
+    customerImage: customerImage3,
+    customerName: "Kristin",
+    customerJob: "TEAM LEADER",
+    paragraph:
+      "Cursus nibh lectus et lectus ut viverra non elementum sed faucibus mauris porta mattis. Integer blandit enim dis aliquam. Quisque odio sodales nisl et urna. Egestas a vel.",
+  },
+  {
+    customerImage: customerImage4,
+    customerName: "Kathryn",
+    customerJob: "PROJECT MANAGER",
+    paragraph:
+      "Eget cras et viverra in amet, sit. Augue elementum vitae gravida faucibus velit enim amet faucibus. Sed egestas morbi sed sem mi. Venenatis nibh ullamcorper aliquet sed. Id cras aliquet vel scelerisque nibh vestibulum at orci, et nullam massa ultrices nulla nunc.",
+  },
+  {
+    customerImage: customerImage5,
+    customerName: "Cody",
+    customerJob: "ETHICAL HACKER",
+    paragraph:
+      "Eu risus habitant in aliquet. Suspendisse imperdiet eros, arcu morbi vestibulum magna urna amet. Quis malesuada arcu nisl, ac massa sit auctor bibendum. Tincidunt tortor sapien consectetur non morbi sed habitant.",
+  },
+  {
+    customerImage: customerImage6,
+    customerName: "Serenity",
+    customerJob: "PROJECT MANAGER",
+    paragraph:
+      "Bibendum congue mauris sit quisque non et. Eu dignissim nisi, platea vel. Quisque curabitur fermentum felis, quis enim, vulputate tellus. Pharetra, consectetur tellus et phasellus ultricies facilisi. In venenatis urna vestibulum semper pretium, ornare. Commodo, semper erat sed quisque.",
+  },
+  {
+    customerImage: customerImage7,
+    customerName: "Jane",
+    customerJob: "UI/UX DESIGNER",
+    paragraph:
+      "Velit arcu, nullam ac elit elementum, leo. Metus viverra egestas gravida neque, dictum amet, sit nullam laoreet. Sagittis faucibus scelerisque enim in hac varius habitant. Urna gravida nulla in sed orci ut quisque consequat.",
+  },
+  {
+    customerImage: customerImage8,
+    customerName: "Greg",
+    customerJob: "TEAM LEADER",
+    paragraph:
+      "Ultricies ullamcorper molestie ultrices tortor, tellus faucibus nisl egestas tortor. Auctor felis, lorem rhoncus maecenas iaculis arcu gravida sed. Dolor orci tempus, aliquam, eget est tristique diam. Ut velit est dictumst nulla.",
+  },
+  {
+    customerImage: customerImage9,
+    customerName: "Savannah",
+    customerJob: "SCRUM MASTER",
+    paragraph:
+      "Dui posuere sit lorem hendrerit etiam eget. Augue semper eros neque sed. Ac egestas massa ultricies ac, sagittis pellentesque vivamus. Felis, pellentesque pellentesque commodo, netus laoreet malesuada.",
+  },
+];
+
+const frequentlyAskedQuestionsAndAnswers = [
+  {
+    question: "How much does this app cost?",
+    answer:
+      "Tincidunt ipsum venenatis urna enim vulputate vitae aenean. Sit id ornare nunc, tempus ac. Congue arcu ante adipiscing adipiscing quis magna condimentum non adipiscing. Neque nullam tortor urna ullamcorper nibh cursus tincidunt.",
+  },
+  {
+    question: "Do you have a free plan?",
+    answer:
+      "Tincidunt ipsum venenatis urna enim vulputate vitae aenean. Sit id ornare nunc, tempus ac. Congue arcu ante adipiscing adipiscing quis magna condimentum non adipiscing. Neque nullam tortor urna ullamcorper nibh cursus tincidunt.",
+  },
+  {
+    question: "What features come on the reader plan?",
+    answer:
+      "Tincidunt ipsum venenatis urna enim vulputate vitae aenean. Sit id ornare nunc, tempus ac. Congue arcu ante adipiscing adipiscing quis magna condimentum non adipiscing. Neque nullam tortor urna ullamcorper nibh cursus tincidunt.",
+  },
+  {
+    question: "What happens if I cancel my plan?",
+    answer:
+      "Tincidunt ipsum venenatis urna enim vulputate vitae aenean. Sit id ornare nunc, tempus ac. Congue arcu ante adipiscing adipiscing quis magna condimentum non adipiscing. Neque nullam tortor urna ullamcorper nibh cursus tincidunt.",
+  },
+  {
+    question: "What security measures do you have?",
+    answer:
+      "Tincidunt ipsum venenatis urna enim vulputate vitae aenean. Sit id ornare nunc, tempus ac. Congue arcu ante adipiscing adipiscing quis magna condimentum non adipiscing. Neque nullam tortor urna ullamcorper nibh cursus tincidunt.",
+  },
+  {
+    question: "How long does my trial last?",
+    answer:
+      "Tincidunt ipsum venenatis urna enim vulputate vitae aenean. Sit id ornare nunc, tempus ac. Congue arcu ante adipiscing adipiscing quis magna condimentum non adipiscing. Neque nullam tortor urna ullamcorper nibh cursus tincidunt.",
+  },
+  {
+    question: "Do you have a special discount for students?",
+    answer:
+      "Tincidunt ipsum venenatis urna enim vulputate vitae aenean. Sit id ornare nunc, tempus ac. Congue arcu ante adipiscing adipiscing quis magna condimentum non adipiscing. Neque nullam tortor urna ullamcorper nibh cursus tincidunt.",
+  },
+  {
+    question: "How do I schedule a product demo?",
+    answer:
+      "Tincidunt ipsum venenatis urna enim vulputate vitae aenean. Sit id ornare nunc, tempus ac. Congue arcu ante adipiscing adipiscing quis magna condimentum non adipiscing. Neque nullam tortor urna ullamcorper nibh cursus tincidunt.",
+  },
+];
+---
+
+<BlogsvilleLayout title="Membership">
+  <Fragment slot="bottom-header">
+    <div class="bg-gray-900 px-4 py-16 text-gray-50">
+      <h1>Get more out of the news</h1>
+      <div class="grid gap-12">
+        <div id="pricing-cards">
+          <div class="grid gap-16">
+            {
+              pricingCards.map((pricingCard) => {
+                const { periodicity } = pricingCard;
+
+                if (periodicity === "Yearly") {
+                  return (
+                    <div class="bg-gray-800 rounded-lg">
+                      <PricingCard {...pricingCard} />
+                    </div>
+                  );
+                }
+
+                return (
+                  <div class="border border-solid border-gray-400 rounded-sm">
+                    <PricingCard {...pricingCard} />
+                  </div>
+                );
+              })
+            }
+          </div>
+        </div>
+        <div id="features">
+          <div class="grid gap-8">
+            {
+              features.map((feature) => {
+                const { paragraph, type, iconClass, iconName } = feature;
+                return (
+                  <FeatureCard
+                    iconClass={iconClass}
+                    iconName={iconName}
+                    featureParagraph={paragraph}
+                    featureType={type}
+                  />
+                );
+              })
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </Fragment>
+  <Fragment slot="top-main">
+    <section aria-label="testimonal-section">
+      <div class="px-4 py-6">
+        <div class="grid gap-12 place-items-center">
+          <div class="w-4/6 text-center">
+            <h2>We’d love to tell you some customer stories</h2>
+          </div>
+          <div class="grid gap-4">
+            {
+              customerTestimonies.map((customerTestimony) => (
+                <CustomerCard {...customerTestimony} />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq">
+      <div class="grid gap-16">
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="grid gap-4">
+          {
+            frequentlyAskedQuestionsAndAnswers.map((questionAndAnswer) => (
+              <FAQAccordion {...questionAndAnswer} />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </Fragment>
+</BlogsvilleLayout>
