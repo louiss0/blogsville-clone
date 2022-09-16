@@ -17,12 +17,12 @@ const { benefits, currency, periodicity, plan, price, salesPitch } =
 
 <div class="px-6 py-8">
   <div class="grid gap-12">
-    <div class="grid gap-4">
-      <div class="text-md capitalize">{plan}</div>
-      <div>
+    <div class="grid gap-2">
+      <div class="text-md uppercase">{plan}</div>
+      <div class="text-xl">
         <span>${price}</span>
         <span>{currency}</span>
-        <span class="text-gray-500">/{periodicity}</span>
+        <span class="text-gray-500 text-sm">/{periodicity}</span>
       </div>
     </div>
     <div class="grid gap-6">

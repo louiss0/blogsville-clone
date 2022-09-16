@@ -15,6 +15,9 @@ import customerImage9 from "../images/621f42bcb97873b54be37b3b_review09.jpg";
 import PricingCard from "@/components/PricingCard.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import CustomerCard from "@/components/CustomerCard.astro";
+import Button from "@/components/Button.vue";
+import Icon from "astro-icon";
+import Container from "@/components/Container.vue";
 
 const pricingCards = [
   {
@@ -203,34 +206,47 @@ const frequentlyAskedQuestionsAndAnswers = [
 
 <BlogsvilleLayout title="Membership">
   <Fragment slot="bottom-header">
-    <div class="bg-gray-900 px-4 py-16 text-gray-50">
-      <h1>Get more out of the news</h1>
-      <div class="grid gap-12">
-        <div id="pricing-cards">
-          <div class="grid gap-16">
-            {
-              pricingCards.map((pricingCard) => {
-                const { periodicity } = pricingCard;
+    <div class="bg-gray-900 px-8 py-16 text-gray-50">
+      <div class="grid gap-12 place-items-center">
+        <h1>Get more out of the news</h1>
 
-                if (periodicity === "Yearly") {
+        <div id="pricing-cards">
+          <Container class="w-10/12">
+            <div class="grid gap-12 md:flex">
+              {
+                pricingCards.map((pricingCard) => {
+                  const { periodicity } = pricingCard;
+                  if (periodicity === "Yearly") {
+                    return (
+                      <div class="relative">
+                        <div class="bg-gray-800 rounded-lg">
+                          <div class="absolute top-4 right-6">
+                            <Button
+                              size={"sm"}
+                              class="bg-green-400 text-gray-900 rounded-md"
+                            >
+                              <div class="uppercase font-semibold  text-sm">
+                                save 30%
+                              </div>
+                            </Button>
+                          </div>
+                          <PricingCard {...pricingCard} />
+                        </div>
+                      </div>
+                    );
+                  }
                   return (
-                    <div class="bg-gray-800 rounded-lg">
+                    <div class="border border-solid border-gray-400 rounded-lg">
                       <PricingCard {...pricingCard} />
                     </div>
                   );
-                }
-
-                return (
-                  <div class="border border-solid border-gray-400 rounded-sm">
-                    <PricingCard {...pricingCard} />
-                  </div>
-                );
-              })
-            }
-          </div>
+                })
+              }
+            </div>
+          </Container>
         </div>
         <div id="features">
-          <div class="grid gap-8">
+          <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {
               features.map((feature) => {
                 const { paragraph, type, iconClass, iconName } = feature;
@@ -250,13 +266,13 @@ const frequentlyAskedQuestionsAndAnswers = [
     </div>
   </Fragment>
   <Fragment slot="top-main">
-    <section aria-label="testimonal-section">
-      <div class="px-4 py-6">
-        <div class="grid gap-12 place-items-center">
-          <div class="w-4/6 text-center">
+    <section class="bg-gray-50" aria-label="testimonal-section">
+      <div class="px-8 py-20">
+        <div class="grid gap-16 place-items-center">
+          <div class="text-center">
             <h2>We’d love to tell you some customer stories</h2>
           </div>
-          <div class="grid gap-4">
+          <div class="grid gap-4 lg:grid-cols-3 lg:gap-8 items-start">
             {
               customerTestimonies.map((customerTestimony) => (
                 <CustomerCard {...customerTestimony} />
@@ -268,12 +284,18 @@ const frequentlyAskedQuestionsAndAnswers = [
     </section>
 
     <section aria-labelledby="faq">
-      <div class="grid gap-16">
-        <h2 id="faq">Frequently Asked Questions</h2>
-        <div class="grid gap-4">
+      <div class="grid gap-16 px-8 py-12">
+        <h2 id="faq" class="text-center">Frequently Asked Questions</h2>
+        <div class="grid gap-4 lg:grid-cols-2">
           {
             frequentlyAskedQuestionsAndAnswers.map((questionAndAnswer) => (
-              <FAQAccordion {...questionAndAnswer} />
+              <FAQAccordion {...questionAndAnswer} client:visible>
+                <Icon
+                  slot="icon-slot"
+                  name="ic:baseline-arrow-downward"
+                  class="w-8 h-8 text-gray-600"
+                />
+              </FAQAccordion>
             ))
           }
         </div>
