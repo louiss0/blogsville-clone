@@ -1,8 +1,109 @@
 ---
+import Button from "@/components/Button.vue";
+import Container from "@/components/Container.vue";
+import Gap from "@/components/Gap.vue";
 import BlogsvilleLayout from "@/layouts/BlogsvilleLayout.astro";
 ---
 
 <BlogsvilleLayout title="Contact">
-  <Fragment slot="header" />
-  <Fragment slot="main" />
+  <Fragment slot="bottom-header">
+    <div class="bg-gray-900 text-gray-50 px-4 py-12">
+      <div class="grid gap-12 place-items-center">
+        <hgroup class="grid gap-8 place-items-center">
+          <h1>lets chat</h1>
+          <p class="text-sm">WE ARE ALWAYS HAPPY TO HEAR FROM YOU.</p>
+        </hgroup>
+
+        <Container class="lg:w-10/12">
+          <form action="" class="text-gray-50">
+            <fieldset class="grid gap-4 grid-cols-2">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Name"
+                class:list={[
+                  "px-6 py-4",
+                  "placeholder:text-current",
+                  "rounded-lg",
+                  "bg-gray-600",
+                ]}
+              />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                class:list={[
+                  "px-6 py-4",
+                  "placeholder:text-current",
+                  "rounded-lg",
+                  "bg-gray-600",
+                ]}
+              />
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                placeholder="Phone"
+                class:list={[
+                  "px-6 py-4",
+                  "placeholder:text-current",
+                  "rounded-lg",
+                  "bg-gray-600",
+                ]}
+              />
+              <select
+                name="subject"
+                id="subject"
+                class:list={[
+                  "px-6 py-4",
+                  "placeholder:text-current",
+                  "rounded-lg",
+                  "bg-gray-600",
+                ]}
+              >
+                <option value="Select a subject" selected
+                  >Select a subject</option
+                >
+              </select>
+              <textarea
+                class:list={[
+                  "bg-gray-600 rounded-lg ",
+                  "px-4 py-6",
+                  "col-span-2",
+                  "resize",
+                ]}
+                name="message"
+                cols="50"
+                rows="8"
+                id="message">Message</textarea
+              >
+            </fieldset>
+            <Gap spaces={1} direction={"vertical"} client:idle />
+            <fieldset id="top-half" class="flex justify-between gap-2">
+              <div class="flex gap-3 items-center">
+                <input
+                  type="checkbox"
+                  name="term-agreement"
+                  id="term-agreement"
+                  class="accent-green-400 h-6 w-6"
+                />
+                <label for="term-agreement"
+                  >You agree to our terms and conditions?</label
+                >
+              </div>
+              <Button
+                type={"button"}
+                size={"lg"}
+                class={"bg-green-400 rounded-lg font-bold capitalize"}
+              >
+                Submit
+              </Button>
+            </fieldset>
+          </form>
+        </Container>
+      </div>
+    </div>
+  </Fragment>
 </BlogsvilleLayout>
