@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useAttrs, computed, ButtonHTMLAttributes } from "vue";
+import { useAttrs, ButtonHTMLAttributes } from "vue";
 
 interface Props extends ButtonHTMLAttributes {
   href?: string;
@@ -10,13 +10,13 @@ const { size = "md" } = defineProps<Props>();
 
 const { class: $class, ...restAttrs } = useAttrs();
 
-const classObject = computed(() => ({
+const classObject = {
   "py-1 px-3": size === "xs",
   "py-2 px-6": size === "sm",
   "py-3 px-9": size === "md",
   "py-4 px-12": size === "lg",
   "py-5 px-14": size === "xl",
-}));
+};
 </script>
 
 <template>

@@ -9,7 +9,7 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div :class="`mx-auto max-w-screen-lg ${$class}`" v-bind="{ restAttrs }">
+  <div :class="`mx-auto max-w-screen-lg ${$class}`" v-bind="restAttrs">
     <slot> <span>Noting to contain</span> </slot>
   </div>
 </template>
